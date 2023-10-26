@@ -1,13 +1,15 @@
 # lexiconundrum documentation
 
----
-
 ## Endpoints
 
 #### GET /search
+
 Gets all words from the dictionary as json.
+
 `curl -X GET https://lexiconundrum.pythonanywhere.com/search`
+
 Response:
+
 `[{
     "word": "sphygmomanometrically",
     "definition": "obtained with a sphygmomanometer",
@@ -18,19 +20,22 @@ Response:
 {
     ....
 }]`
-GET /random
+
+#### GET /random
+
 Gets one random entry from the dictionary
 
-curl -X GET https://lexiconundrum.pythonanywhere.com/random
+`curl -X GET https://lexiconundrum.pythonanywhere.com/random`
+
 Response:
 
-{
+`{
     "word": "sphygmomanometrically",
     "definition": "obtained with a sphygmomanometer",
     "origin": "Greek (sphygmo-)",
     "partOfSpeech": "adjective",
     "phonetics": "-ˌman-ə-ˈme-trik"
-}
+}`
 
 
 Filters & Query Parameters
