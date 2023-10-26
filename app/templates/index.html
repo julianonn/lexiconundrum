@@ -1,72 +1,95 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Lexiconundrum API Docs</title>
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
-            background-color: #e6ffed; /* Light Green */
-            font-family: 'Arial', sans-serif;
-        }
+/* Body */
+body {
+    font-family: "Georgia", serif;
+    background-color: #f3f3f3;
+    color: #333;
+    margin: 0;
+}
 
-        .container {
-            background-color: #ffffff; /* White */
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            margin: 20px auto; /* Center the container horizontally */
-            max-width: 800px; /* Limit the maximum width */
-        }
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
 
-        .card {
-            margin-bottom: 20px;
-        }
+/* Headings */
+h1, h2 {
+    font-family: "Georgia", serif;
+    color: #333;
+    margin-bottom: 40px;
+}
 
-        .card-header {
-            background-color: #449944; /* Slightly Darker Green */
-            color: #fff;
-            font-size: 20px;
-            padding: 15px;
-        }
+h1 {
+    text-align: center;
+}
 
-        .card-body {
-            background-color: #f1f8e9; /* Light Green */
-            padding: 15px;
-        }
+h2 {
+    font-weight: bold;
+}
 
+.highlight {
+    color: #1a7d6b;
+    font-weight: bold;
+    font-style: italic;
+}
 
-        h1, h2 {
-            color: #449944; /* Slightly Darker Green */
-            margin-bottom: 20px;
-        }
+/* Cards */
+.card {
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
 
-        h1, h2 .center {
-            text-align: center;
-        }
+/* Card Headers */
+.card-header {
+    background-color: #1a7d6b;
+    color: #fff;
+    font-size: 24px;
+    padding: 15px;
+    border-bottom: none;
+}
 
-        pre {
-            background-color: white; /* Dark Green */
-            border: 2px solid #449944; /* Slightly Darker Green */
-            border-radius: 5px;
-            padding: 10px;
-        }
+/* Card Body */
+.card-body {
+    padding: 20px;
+}
 
-        code {
-            color: #fff; /* White text */
-        }
+/* Code Blocks */
+pre {
+    background-color: #f4f4f4;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    padding: 10px;
+    overflow: auto;
+    font-family: "Courier New", monospace;
+    color: #000;
+}
+
+code {
+    font-family: "Courier New", monospace;
+    color: #000;
+}
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="display-4">lexiconundrum<br>documentation</h1><br>
+        <h1 class="display-4"><div class="highlight">lexiconundrum</div>API documentation</h1><br>
 
         <h2>Endpoints</h2>
 
         <!-- SEARCH -->
         <div class="card">
             <div class="card-header">
-                <h3 class="mb-0">GET /search</h3>
+                <h4 class="mb-0">GET /search</h4>
             </div>
             <div class="card-body">
                 <p class="lead">Gets all words from the dictionary as json.</p>
@@ -88,7 +111,7 @@
         <!-- RANDOM -->
         <div class="card">
             <div class="card-header">
-                <h3 class="mb-0">GET /random</h3>
+                <h4 class="mb-0">GET /random</h4>
             </div>
             <div class="card-body">
                 <p class="lead">Gets one random entry from the dictionary</p>
@@ -110,7 +133,7 @@
         <!-- Limit -->
         <div class="card">
             <div class="card-header">
-                <h3 class="mb-0">Limit (search only)</h3>
+                <h4 class="mb-0">Limit (search only)</h4>
             </div>
             <div class="card-body">
                 <p class="lead">In search endpoint, sets a maximum number of entries returned.</p>
@@ -122,7 +145,7 @@
         <!-- filter substring -->
         <div class="card">
             <div class="card-header">
-                <h3 class="mb-0">Filter by word content</h3>
+                <h4 class="mb-0">Filter by word content</h4>
             </div>
             <div class="card-body">
                 <p class="lead">Filter /search results and /random pool by substrings. Possible parameter names are 'contains', 'startsWith', and 'endsWith'.</p>
@@ -136,7 +159,7 @@
         <!-- filter length -->
         <div class="card">
             <div class="card-header">
-                <h3 class="mb-0">Filter by word length</h3>
+                <h4 class="mb-0">Filter by word length</h4>
             </div>
             <div class="card-body">
                 <p class="lead">Filter /search results and /random pool by substrings. Possible parameter names are 'length', 'maxLength', and 'minLength'. Parameter 'length' sets a strict equality, while 'maxLength' and 'minLength' set upper and lower bounds for word length.</p>
@@ -151,7 +174,7 @@
         <!-- Filtering PoS -->
         <div class="card">
             <div class="card-header">
-                <h3 class="mb-0">Filter by part of speech</h3>
+                <h4 class="mb-0">Filter by part of speech</h4>
             </div>
             <div class="card-body">
                 <p class="lead">Filer /search results and /random pool by part of speech. Acceptable arguments include: 'noun', 'adjective', 'verb', and 'adverb'.</p>
@@ -161,7 +184,7 @@
         </div>
 
         <footer class="text-center py-2 mt-5">
-            <p class="text-dark">&copy; 2023 <a href="https://julianonn.github.io/">julianonn</a></p>
+            <p class="text-dark">&copy; 2023. By <a href="https://julianonn.github.io/">julianonn</a>. Check out the <a href="https://github.com/julianonn/lexiconundrum/">source code</a> on GitHub!</p>
         </footer>
 
     </div>
