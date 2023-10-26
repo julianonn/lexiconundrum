@@ -1,0 +1,173 @@
+\<!DOCTYPE html>
+<html>
+<head>
+    <title>Lexiconundrum API Docs</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #e6ffed; /* Light Green */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            background-color: #ffffff; /* White */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 20px auto; /* Center the container horizontally */
+            max-width: 800px; /* Limit the maximum width */
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            background-color: #449944; /* Slightly Darker Green */
+            color: #fff;
+            font-size: 20px;
+            padding: 15px;
+        }
+
+        .card-body {
+            background-color: #f1f8e9; /* Light Green */
+            padding: 15px;
+        }
+
+
+        h1, h2 {
+            color: #449944; /* Slightly Darker Green */
+            margin-bottom: 20px;
+        }
+
+        h1, h2 .center {
+            text-align: center;
+        }
+
+        pre {
+            background-color: white; /* Dark Green */
+            border: 2px solid #449944; /* Slightly Darker Green */
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        code {
+            color: #fff; /* White text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="display-4">lexiconundrum<br>documentation</h1><br>
+
+        <h2>Endpoints</h2>
+
+        <!-- SEARCH -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">GET /search</h3>
+            </div>
+            <div class="card-body">
+                <p class="lead">Gets all words from the dictionary as json.</p>
+                <pre><code>curl -X GET https://lexiconundrum.pythonanywhere.com/search</code></pre>
+                <p class="lead">Response:</p>
+                <pre><code>[{
+    "word": "sphygmomanometrically",
+    "definition": "obtained with a sphygmomanometer",
+    "origin": "Greek (sphygmo-)",
+    "partOfSpeech": "adjective",
+    "phonetics": "-ˌman-ə-ˈme-trik"
+},
+{
+    ....
+}]</code></pre>
+            </div>
+        </div>
+
+        <!-- RANDOM -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">GET /random</h3>
+            </div>
+            <div class="card-body">
+                <p class="lead">Gets one random entry from the dictionary</p>
+                <pre><code>curl -X GET https://lexiconundrum.pythonanywhere.com/random</code></pre>
+                <p class="lead">Response:</p>
+                <pre><code>{
+    "word": "sphygmomanometrically",
+    "definition": "obtained with a sphygmomanometer",
+    "origin": "Greek (sphygmo-)",
+    "partOfSpeech": "adjective",
+    "phonetics": "-ˌman-ə-ˈme-trik"
+}</code></pre>
+            </div>
+        </div>
+
+
+    <br><br><h2>Filters & Query Parameters</h2>
+
+        <!-- Limit -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">Limit (search only)</h3>
+            </div>
+            <div class="card-body">
+                <p class="lead">In search endpoint, sets a maximum number of entries returned.</p>
+                <p class="lead">Example:</p>
+                <pre><code>curl -X GET https://lexiconundrum.pythonanywhere.com/random?limit=10</code></pre>
+            </div>
+        </div>
+
+        <!-- filter substring -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">Filter by word content</h3>
+            </div>
+            <div class="card-body">
+                <p class="lead">Filter /search results and /random pool by substrings. Possible parameter names are 'contains', 'startsWith', and 'endsWith'.</p>
+                <p class="lead">Example 1:</p>
+                <pre><code>curl -X GET https://lexiconundrum.pythonanywhere.com/search?contains=anti</code></pre>
+                <p class="lead">Example 2:</p>
+                <pre><code>curl -X GET https://lexiconundrum.pythonanywhere.com/random?startsWith=anti&endsWith=ly</code></pre>
+            </div>
+        </div>
+
+        <!-- filter length -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">Filter by word length</h3>
+            </div>
+            <div class="card-body">
+                <p class="lead">Filter /search results and /random pool by substrings. Possible parameter names are 'length', 'maxLength', and 'minLength'. Parameter 'length' sets a strict equality, while 'maxLength' and 'minLength' set upper and lower bounds for word length.</p>
+                <p class="lead">Example 1:</p>
+                <pre><code>curl -X GET https://lexiconundrum.pythonanywhere.com/random?length=15</code></pre>
+                <p class="lead">Example 2:</p>
+                <pre><code>curl -X GET https://lexiconundrum.pythonanywhere.com/search?minLength=10&maxLength=18</code></pre>
+            </div>
+        </div>
+
+
+        <!-- Filtering PoS -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">Filter by part of speech</h3>
+            </div>
+            <div class="card-body">
+                <p class="lead">Filer /search results and /random pool by part of speech. Acceptable arguments include: 'noun', 'adjective', 'verb', and 'adverb'.</p>
+                <p class="lead">Example:</p>
+                <pre><code>curl -X GET https://lexiconundrum.pythonanywhere.com/random?partOfSpeech=noun</code></pre>
+            </div>
+        </div>
+
+        <footer class="text-center py-2 mt-5">
+            <p class="text-dark">&copy; 2023 <a href="https://julianonn.github.io/">julianonn</a></p>
+        </footer>
+
+    </div>
+
+    <!-- Include Bootstrap and jQuery JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
