@@ -1,6 +1,6 @@
 # lexiconundrum documentation
 
-little REST api that gets really long words from the Oxford English Dictionary. [Live on PythonAnywhere!!!](https://lexiconundrum.pythonanywhere.com/) :joy:
+little REST api that gets really long words from the Oxford English Dictionary. [Live on PythonAnywhere!!!](https://lexiconundrum.pythonanywhere.com/) 😃
 
 ## Endpoints
 
